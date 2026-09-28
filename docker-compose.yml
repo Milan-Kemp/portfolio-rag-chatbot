@@ -1,0 +1,41 @@
+services:
+  api:
+    build: .
+    restart: unless-stopped
+    # Secrets are read from .env at runtime; the file is not part of the image.
+    env_file: .env
+    volumes:
+      # Named volume: seeded from the image's storage/ on first start, then
+      # persists across restarts and rebuilds (no re-ingest after a deploy).
+      # Covers the whole storage/ dir so the embedding cache survives too.
+      - rag_storage:/app/storage
+    expose:
+      - "8000"   # internal only, reachable by Caddy, not from the internet
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=4)"]
+      interval: 30s
+      timeout: 6s
+      retries: 3
+      start_period: 40s
+
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    depends_on:
+      api:
+        condition: service_healthy
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"   # HTTP/3
+    environment:
+      DOMAIN: ${DOMAIN:-localhost}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data        # certificates: keep, or you hit Let's Encrypt rate limits
+      - caddy_config:/config
+
+volumes:
+  rag_storage:
+  caddy_data:
+  caddy_config:

@@ -1,0 +1,26 @@
+# Secrets: never bake into the image
+.env
+.env.*
+!.env.example
+
+# Local/dev clutter
+.venv/
+venv/
+__pycache__/
+*.pyc
+.git/
+.gitignore
+.idea/
+.vscode/
+
+# Not needed at runtime
+widget/
+deploy/
+README.md
+DEPLOY.md
+Dockerfile
+docker-compose*.yml
+Caddyfile
+.dockerignore
+
+# storage/ and content/ are intentionally INCLUDED (vector store + source docs)

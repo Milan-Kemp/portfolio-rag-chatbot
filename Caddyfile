@@ -1,0 +1,10 @@
+# {$DOMAIN} comes from the environment (see docker-compose.yml / .env).
+#   - Real domain (e.g. chatbot.example.com): Caddy gets and renews a
+#     Let's Encrypt certificate automatically. Needs DNS pointing at this
+#     server and ports 80 + 443 open.
+#   - Default "localhost": Caddy uses its own local CA, so you get HTTPS
+#     for local testing (browsers/curl will warn: use `curl -k`).
+{$DOMAIN:localhost} {
+	encode zstd gzip
+	reverse_proxy api:8000
+}

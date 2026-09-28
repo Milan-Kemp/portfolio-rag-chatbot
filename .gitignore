@@ -1,0 +1,15 @@
+.env
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Local vector store. Rebuilt by `python ingest.py`.
+storage/chroma/
+
+# Embedding cache. Safe to commit if you want to avoid re-embedding on a
+# fresh clone (it only holds vectors of your own text, keyed by hash).
+storage/embedding_cache.json
+
+# Unrelated demo that lives in this folder; not part of the chatbot
+jcb-offerte-demo/

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Widget demo — Portfolio RAG chatbot</title>
+    <style>
+      body {
+        font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+        max-width: 640px;
+        margin: 10vh auto;
+        padding: 0 24px;
+        color: #1a1a1a;
+      }
+      code {
+        background: #f0f0f0;
+        padding: 2px 5px;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Widget demo</h1>
+    <p>
+      Deze pagina laadt de chatbot-widget lokaal. Start eerst de API
+      (<code>uvicorn api:app --reload</code>) en open deze pagina via een
+      lokale webserver, bijvoorbeeld:
+    </p>
+    <p><code>python -m http.server 8000</code> &rarr; open
+      <code>http://127.0.0.1:8000/widget/demo.html</code></p>
+    <p>
+      Klik rechtsonder op het chat-icoon en stel een vraag over een van de
+      projecten in <code>content/</code>.
+    </p>
+
+    <!-- The one-line embed. On the real site, point data-api at the deployed API. -->
+    <script
+      src="portfolio-chatbot.js"
+      data-api="http://127.0.0.1:8000"
+      data-title="Vraag het mijn portfolio"
+    ></script>
+  </body>
+</html>

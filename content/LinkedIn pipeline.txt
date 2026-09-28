@@ -1,0 +1,33 @@
+# LinkedIn Content Pipeline
+
+Een AI-gedreven contentautomatisering, gebouwd tijdens mijn stage bij 
+ReFurnity, die LinkedIn-posts genereert via N8N en Claude.
+
+## Het probleem: onderwerpherhaling
+
+De grootste uitdaging was onderwerpsturing. De flow kon zelf leren welke 
+onderwerpen goed scoorden op interacties, maar dat leidde tot een 
+zelfversterkend effect: als een AI-gerelateerd onderwerp goed scoorde, 
+koos de flow steeds vaker datzelfde soort onderwerp, waardoor de content 
+op den duur eenzijdig werd en zich ging herhalen.
+
+## De oplossing
+
+Ik loste dit op door brede onderwerpcategorieën vooraf te definiren en bij 
+te houden hoe vaak elke categorie al gebruikt was (een simpele telling per 
+onderwerp). Daarmee bleef de flow vrij om zelf een onderwerp binnen die 
+categorieën te kiezen, maar hield het systeem rekening met spreiding: een 
+onderwerp dat al vaak was langsgekomen, werd minder waarschijnlijk opnieuw 
+gekozen. Daarnaast bleef het mogelijk om zelf handmatig met een specifiek 
+onderwerp te komen, buiten de automatische selectie om.
+
+## Resultaat
+
+Een contentpipeline die zelfstandig kan kiezen en leren van performance, 
+zonder dat die keuzevrijheid omslaat in eenzijdige, herhaalde content. Het 
+systeem draait nog steeds en wordt dagelijks gebruikt bij ReFurnity.
+
+## Tech stack
+
+N8N (workflow-orchestratie), Claude API (contentgeneratie), tellingslogica 
+voor onderwerpspreiding, LinkedIn als publicatiekanaal.

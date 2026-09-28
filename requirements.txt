@@ -1,0 +1,11 @@
+# Core RAG pipeline
+voyageai>=0.3.0          # embeddings (ingest + retrieve)
+chromadb==1.5.9          # local vector store (pinned: shipped storage/ must open with the same version)
+tiktoken>=0.8.0          # token counting for chunk sizing
+python-dotenv>=1.0.0     # load secrets from .env
+
+# Answer + API layer (used by answer.py / api.py, added in a later step)
+anthropic>=0.40.0
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+slowapi>=0.1.9           # rate limiting on /ask (public endpoint)

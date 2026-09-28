@@ -1,0 +1,32 @@
+# Offerte, Orderbevestiging & Factuur Generator
+
+Een documentgeneratiepipeline voor ReFurnity die offertes,
+orderbevestigingen en facturen automatisch opstelt vanuit ruwe klantdata.
+
+## Het probleem: wensen vertalen naar exacte output
+
+De grootste uitdaging zat niet in de techniek van documenten genereren,
+maar in het precies vertalen van de wensen van de opdrachtgever naar
+concrete output. ReFurnity had specifieke eisen aan hoe een offerte,
+orderbevestiging en factuur eruit moesten zien, tot in details als
+opmaak, volgorde van informatie, en welke gegevens waar hoorden te staan.
+Een output die inhoudelijk klopte maar niet exact aansloot bij hun format
+was voor hen niet bruikbaar.
+
+## De oplossing
+
+Ik leerde hierbij vooral hoe ik de wensen van een opdrachtgever nauwkeurig
+kan doorgronden en vertalen naar een werkende technische oplossing: niet
+alleen vragen wat ze willen, maar doorvragen op het waarom achter een eis,
+zodat de output niet slechts een benadering werd maar precies aansloot bij
+wat ReFurnity nodig had voor hun eigen administratie en klantcommunicatie.
+
+## Resultaat
+
+Een pipeline die offertes, orderbevestigingen en facturen genereert in
+precies het format dat ReFurnity vereist, nog steeds in gebruik.
+
+## Tech stack
+
+Documentgeneratie vanuit klantdata, afgestemd op de exacte opmaak-eisen
+van ReFurnity.
