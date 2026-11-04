@@ -13,3 +13,6 @@ storage/embedding_cache.json
 
 # Unrelated demo that lives in this folder; not part of the chatbot
 jcb-offerte-demo/
+
+# SSH private keys: never commit
+*.pem

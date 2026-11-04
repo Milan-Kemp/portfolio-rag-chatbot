@@ -24,3 +24,6 @@ Caddyfile
 .dockerignore
 
 # storage/ and content/ are intentionally INCLUDED (vector store + source docs)
+
+# SSH private keys: never bake into the image
+*.pem
